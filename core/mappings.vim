@@ -39,3 +39,6 @@ inoremap <S-Tab> <ESC><<i
 
 nnoremap <silent> gb :<C-U>call buf_utils#GoToBuffer(v:count, 'forward')<CR>
 nnoremap <silent> gB :<C-U>call buf_utils#GoToBuffer(v:count, 'backward')<CR>
+
+" terminal fast escaping
+tnoremap jj <C-\><C-N>
