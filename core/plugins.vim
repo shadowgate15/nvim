@@ -195,6 +195,9 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 let g:CommandTCancelMap = '<Esc>'
 
 """"""""""""""""""""""""""asyncrun.vim settings""""""""""""""""""""""""""
+" Automatically open quickfix window of 6 line tall after asyncrun starts
+let g:asyncrun_open = 6
+
 let g:asyncrun_status = 'stopped'
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
