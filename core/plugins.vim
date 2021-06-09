@@ -39,10 +39,13 @@ if g:is_win || g:is_mac
 endif
 
 " Automatic insertion and deletion of a pair of characters
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " Autosave files on certain events
 Plug '907th/vim-auto-save'
+
+" Show git change (change, delete, add) signs in vim sign column
+Plug 'mhinz/vim-signify'
 
 " vim-airline
 Plug 'vim-airline/vim-airline'
@@ -84,6 +87,13 @@ nnoremap <silent> <leader>gpl :Git pull<CR>
 " Note that to use bar literally, we need backslash it, see also `:h :bar`.
 nnoremap <silent> <leader>gpu :15split \| term git push
 
+"""""""""""""""""""""""""vim-signify settings""""""""""""""""""""""""""""""
+" The VCS to use
+let g:signify_vcs_list = [ 'git' ]
+
+" Change the sign for certain operations
+let g:signify_sign_change = '~'
+
 """""""""""""""""""""""""""NERDTree settings""""""""""""""""""""""""""""""""
 nnoremap <leader>n :NERDTreeFocus<CR>
 
@@ -107,3 +117,13 @@ if g:is_win || g:is_mac
   nmap ob <Plug>(openbrowser-smart-search)
   xmap ob <Plug>(openbrowser-smart-search)
 endif
+
+""""""""""""""""""""""""vim-auto-save settings"""""""""""""""""""""""
+" Enable autosave on nvim startup
+let g:auto_save = 1
+
+" A list of events to trigger autosave
+let g:auto_save_events = ['InsertLeave', 'TextChanged']
+
+" Whether to show autosave status on command line
+let g:auto_save_silent = 0
