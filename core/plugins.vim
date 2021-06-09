@@ -203,13 +203,12 @@ nnoremap <leader>r :AsyncRun<space>
 " linters for different filetypes
 let g:ale_linters = {
   \ 'vim': ['vint'],
-  \ 'javascript': ['xo']
   \ }
 
 " ale fixers
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \ 'javascript': ['xo'],
+  \ 'javascript': ['prettier', 'xo']
   \ }
 
 " fix on save
