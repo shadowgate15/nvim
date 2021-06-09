@@ -44,13 +44,13 @@ Plug 'jiangmiao/auto-pairs'
 " Autosave files on certain events
 Plug '907th/vim-auto-save'
 
-" Show git change (change, delete, add) signs in vim sign column
-Plug 'mhinz/vim-signify'
-
 " command-t
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
     \ }
+
+" coc.nvim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " vim-airline
 Plug 'vim-airline/vim-airline'
@@ -92,13 +92,6 @@ nnoremap <silent> <leader>gpl :Git pull<CR>
 " Note that to use bar literally, we need backslash it, see also `:h :bar`.
 nnoremap <silent> <leader>gpu :15split \| term git push
 
-"""""""""""""""""""""""""vim-signify settings""""""""""""""""""""""""""""""
-" The VCS to use
-let g:signify_vcs_list = [ 'git' ]
-
-" Change the sign for certain operations
-let g:signify_sign_change = '~'
-
 """""""""""""""""""""""""""NERDTree settings""""""""""""""""""""""""""""""""
 nnoremap <leader>n :NERDTreeFocus<CR>
 
@@ -132,3 +125,27 @@ let g:auto_save_events = ['InsertLeave', 'TextChanged']
 
 " Whether to show autosave status on command line
 let g:auto_save_silent = 0
+
+"""""""""""""""""""""""""""coc.nvim settings"""""""""""""""""""""""""""""
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
