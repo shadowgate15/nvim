@@ -52,6 +52,10 @@ Plug 'wincent/command-t', {
 " coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Additional powerful text object for vim, this plugin should be studied
+" carefully to use its full power
+Plug 'wellle/targets.vim'
+
 " vim-airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
