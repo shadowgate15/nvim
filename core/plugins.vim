@@ -94,7 +94,7 @@ nnoremap <silent> <leader>gs :Git<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>gpl :Git pull<CR>
 " Note that to use bar literally, we need backslash it, see also `:h :bar`.
-nnoremap <silent> <leader>gpu :15split \| term git push
+nnoremap <silent> <leader>gpu :15split \| term git push<CR>
 
 """""""""""""""""""""""""""NERDTree settings""""""""""""""""""""""""""""""""
 nnoremap <leader>n :NERDTreeFocus<CR>
