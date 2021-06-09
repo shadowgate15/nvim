@@ -10,9 +10,6 @@ let g:loaded_python_provider = 0
 " Disable perl provider
 let g:loaded_perl_provider = 0
 
-" Disable ruby provider
-let g:loaded_ruby_provider = 0
-
 " set quit_filetypes
 let g:quit_filetypes = ['qf', 'vista', 'nerdtree']
 

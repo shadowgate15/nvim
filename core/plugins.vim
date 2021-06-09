@@ -47,6 +47,11 @@ Plug '907th/vim-auto-save'
 " Show git change (change, delete, add) signs in vim sign column
 Plug 'mhinz/vim-signify'
 
+" command-t
+Plug 'wincent/command-t', {
+    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+    \ }
+
 " vim-airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
