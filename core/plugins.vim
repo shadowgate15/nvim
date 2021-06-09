@@ -197,6 +197,8 @@ let g:CommandTCancelMap = '<Esc>'
 let g:asyncrun_status = 'stopped'
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
+nnoremap <leader>r :AsyncRun<space>
+
 """"""""""""""""""""""""""ALE settings""""""""""""""""""""""""""
 " linters for different filetypes
 let g:ale_linters = {
