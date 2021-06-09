@@ -20,7 +20,6 @@ call plug#begin()
 " minimalist color scheme
 Plug 'dikiaap/minimalist'
 
-
 " Git command inside vim
 Plug 'tpope/vim-fugitive'
 
@@ -60,6 +59,12 @@ Plug 'wellle/targets.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" ALE
+Plug 'dense-analysis/ale'
+
+" Asynchronous command execution
+Plug 'skywind3000/asyncrun.vim'
+
 call plug#end()
 
 """""""""""""""""""""""""""vim-airline settings"""""""""""""""""""""""""""""
@@ -88,6 +93,9 @@ let g:airline_highlighting_cache = 1
 " Disable scrollbar
 let g:airline#extensions#scrollbar#enabled = 0
 
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+
 """""""""""""""""""""""""vim-fugitive settings""""""""""""""""""""""""""""""
 nnoremap <silent> <leader>gc :Git commit<CR>
 nnoremap <silent> <leader>gs :Git<CR>
@@ -105,16 +113,22 @@ let NERDTreeChDirMode = 2
 " open Bookmarks by default
 let NERDTreeShowBookmarks = 1
 
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+augroup nerdtree_start
+  " Start NERDTree when Vim is started without file arguments.
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+augroup END
 
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+augroup nerdtree_no_replace
+  " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+  autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+      \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+augroup END
 
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * silent NERDTreeMirror
+augroup nerdtree_mirror
+  " Open the existing NERDTree on each new tab.
+  autocmd BufWinEnter * silent NERDTreeMirror
+augroup END
 
 """"""""""""""""""""""""""""open-browser.vim settings"""""""""""""""""""
 if g:is_win || g:is_mac
@@ -151,8 +165,10 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup coc_highlight_hold
+  " Highlight the symbol and its references when holding the cursor.
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup END
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -162,3 +178,23 @@ nmap <silent> gr <Plug>(coc-references)
 
 """""""""""""""""""""""""""command-t settings"""""""""""""""""""""""""""""
 let g:CommandTCancelMap = '<Esc>'
+
+""""""""""""""""""""""""""asyncrun.vim settings""""""""""""""""""""""""""
+let g:asyncrun_status = 'stopped'
+let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+
+""""""""""""""""""""""""""ALE settings""""""""""""""""""""""""""
+" linters for different filetypes
+let g:ale_linters = {
+  \ 'vim': ['vint'],
+  \ 'javascript': ['xo']
+  \ }
+
+" ale fixers
+let g:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'javascript': ['xo'],
+  \ }
+
+" fix on save
+let g:ale_fix_on_save = 1
