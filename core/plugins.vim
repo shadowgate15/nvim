@@ -102,9 +102,12 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 " change CWD when root tree is changed
 let NERDTreeChDirMode = 2
 
+" open Bookmarks by default
+let NERDTreeShowBookmarks = 1
+
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | wincmd p | endif
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
