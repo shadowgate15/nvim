@@ -194,6 +194,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 """""""""""""""""""""""""""command-t settings"""""""""""""""""""""""""""""
 let g:CommandTCancelMap = '<Esc>'
 
+let g:CommandTWildIgnore=&wildignore . ',*/.git,*/build,*/node_modules'
+
 """"""""""""""""""""""""""asyncrun.vim settings""""""""""""""""""""""""""
 " Automatically open quickfix window of 6 line tall after asyncrun starts
 let g:asyncrun_open = 6
