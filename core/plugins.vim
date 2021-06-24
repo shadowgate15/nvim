@@ -68,6 +68,9 @@ Plug 'skywind3000/asyncrun.vim'
 " EasyMotion
 Plug 'easymotion/vim-easymotion'
 
+" vim-pug
+Plug 'digitaltoad/vim-pug'
+
 call plug#end()
 
 """""""""""""""""""""""""""vim-airline settings"""""""""""""""""""""""""""""
