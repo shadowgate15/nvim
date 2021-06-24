@@ -9,6 +9,9 @@ if g:is_linux
   let g:plug_url_format = 'https://hub.fastgit.org/%s.git'
 endif
 
+" disable ALE lsp
+let g:ale_disable_lsp = 1
+
 augroup plug_init
   autocmd!
   autocmd VimEnter * PlugInstall --sync | quit |source $MYVIMRC
