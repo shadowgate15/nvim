@@ -68,8 +68,12 @@ Plug 'skywind3000/asyncrun.vim'
 " EasyMotion
 Plug 'easymotion/vim-easymotion'
 
-" vim-pug
+" syntax helpers
 Plug 'digitaltoad/vim-pug'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'elzr/vim-json'
 
 call plug#end()
 
