@@ -220,6 +220,7 @@ let g:ale_linters = {
 " ale fixers
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'typescript': ['eslint', 'prettier'],
   \ 'javascript': ['prettier', 'xo']
   \ }
 
