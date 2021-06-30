@@ -240,6 +240,9 @@ let g:ale_fixers = {
 " fix on save
 let g:ale_fix_on_save = 1
 
+" change message to include which linter
+let g:ale_echo_msg_format = '[%linter%]%code: %%s'
+
 """"""""""""""""""""""""""EasyMotion settings""""""""""""""""""""""""""
 
 " thx to @dsibiski
