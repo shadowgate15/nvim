@@ -103,7 +103,7 @@ set nostartofline
 
 " External program to use for grep command
 if executable('rg')
-  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --glob=!/node_modules\ --glob=!yarn.lock\ --glob=!package-lock.json
   set grepformat=%f:%l:%c:%m
 endif
 

@@ -71,6 +71,9 @@ Plug 'skywind3000/asyncrun.vim'
 " EasyMotion
 Plug 'easymotion/vim-easymotion'
 
+" Livedown
+Plug 'shime/vim-livedown'
+
 " syntax helpers
 Plug 'digitaltoad/vim-pug'
 Plug 'pangloss/vim-javascript'
