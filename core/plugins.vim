@@ -242,7 +242,8 @@ let g:ale_fixers = {
   \ 'javascript': ['prettier', 'xo'],
   \ 'html': ['prettier'],
   \ 'css': ['prettier'],
-  \ 'json': ['prettier']
+  \ 'json': ['prettier'],
+  \ 'yaml': ['prettier'],
   \ }
 
 " fix on save
