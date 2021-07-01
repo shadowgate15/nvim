@@ -80,6 +80,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'elzr/vim-json'
+Plug 'stephpy/vim-yaml'
 
 " tmuxline.vim
 Plug 'edkolev/tmuxline.vim'
