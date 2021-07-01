@@ -84,11 +84,16 @@ Plug 'elzr/vim-json'
 " tmuxline.vim
 Plug 'edkolev/tmuxline.vim'
 
+" base16
+Plug 'chriskempson/base16-vim'
+" tomorrow-theme
+Plug 'chriskempson/base16-tomorrow-scheme'
+
 call plug#end()
 
 """""""""""""""""""""""""""vim-airline settings"""""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
-let g:airline_theme='tomorrow'
+let g:airline_theme='base16_tomorrow_night'
 
 " Skip empty sections if there are nothing to show,
 " extracted from https://vi.stackexchange.com/a/9637/15292
