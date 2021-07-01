@@ -7,4 +7,4 @@ set termguicolors
 
 set t_Co=256
 set background=dark
-colorscheme tomorrow             " terminal theme
+colorscheme minimalist             " terminal theme

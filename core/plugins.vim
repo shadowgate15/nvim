@@ -88,7 +88,7 @@ call plug#end()
 
 """""""""""""""""""""""""""vim-airline settings"""""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
-let g:airline_theme='minimalist'
+let g:airline_theme='tomorrow'
 
 " Skip empty sections if there are nothing to show,
 " extracted from https://vi.stackexchange.com/a/9637/15292
