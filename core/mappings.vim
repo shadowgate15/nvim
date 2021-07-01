@@ -7,7 +7,7 @@ nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :qa<cr>
 
 " fast window switching
-map <leader>, <C-W>w
+map <leader><leader> <C-W>w
 
 " fast escaping
 imap jj <ESC>
@@ -19,10 +19,6 @@ nnoremap k gk
 " Yank from current cursor position to the end of the line (make it
 " consistent with the behavior of D, C)
 nnoremap Y y$
-
-" ignore lines when going up or down
-nnoremap j gj
-nnoremap k gk
 
 " Continuous visual shifting (does not exit Visual mode), `gv` means
 " to reselect previous visual area, see https://superuser.com/q/310417/736190

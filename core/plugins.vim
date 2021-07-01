@@ -81,6 +81,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'elzr/vim-json'
 
+" tmuxline.vim
+Plug 'edkolev/tmuxline.vim'
+
 call plug#end()
 
 """""""""""""""""""""""""""vim-airline settings"""""""""""""""""""""""""""""

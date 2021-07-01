@@ -26,5 +26,5 @@ else
 endif
 
 " Custom mapping <leader> (see `:h mapleader` for more info)
-noremap , \
-let mapleader = ','
+noremap <space> <nop>
+let mapleader = ' '
