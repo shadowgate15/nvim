@@ -40,9 +40,6 @@ if g:is_win || g:is_mac
   Plug 'tyru/open-browser.vim'
 endif
 
-" Automatic insertion and deletion of a pair of characters
-Plug 'jiangmiao/auto-pairs'
-
 " Autosave files on certain events
 Plug '907th/vim-auto-save'
 
@@ -190,6 +187,9 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Use <cr> to confirm selection of completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 augroup coc_highlight_hold
   " Highlight the symbol and its references when holding the cursor.
   autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -208,13 +208,19 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
-nmap <leader>f :Format<cr>
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+nmap <leader>f :Fold<cr>
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" disable coc-pairs in vim
+augroup coc_pairs_disabled
+  autocmd!
+  autocmd FileType vim let b:coc_pairs_disabled = ['"']
+augroup END
 
 """""""""""""""""""""""""""command-t settings"""""""""""""""""""""""""""""
 let g:CommandTCancelMap = '<Esc>'

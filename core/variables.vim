@@ -25,9 +25,6 @@ else
   echoerr 'Python 3 executable not found! You must install Python 3 and set its PATH correctly!'
 endif
 
-" set auto_insert_files
-let g:auto_insert_files = ['COMMIT_EDITMSG']
-
 " Custom mapping <leader> (see `:h mapleader` for more info)
 noremap <space> <nop>
 let mapleader = ' '
