@@ -59,3 +59,9 @@ function! s:quit_current_win() abort
     quit
   endif
 endfunction
+
+" Automatically enter insert mode when editing gitcommit
+augroup auto_insert_gitcommit
+  autocmd!
+  autocmd FileType gitcommit startinsert
+augroup END
