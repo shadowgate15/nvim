@@ -116,3 +116,6 @@ set signcolumn=auto:2
 " Remove certain character from file name pattern matching
 set isfname-==
 set isfname-=,
+
+" Set fold method
+set foldmethod='syntax'
