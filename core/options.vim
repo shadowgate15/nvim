@@ -120,4 +120,4 @@ set isfname-=,
 " Set fold method
 set foldenable
 set foldmethod=indent
-set foldmethod=99
+set foldlevel=99
