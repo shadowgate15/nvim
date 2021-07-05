@@ -118,4 +118,6 @@ set isfname-==
 set isfname-=,
 
 " Set fold method
-set foldmethod=syntax
+set foldenable
+set foldmethod=indent
+set foldmethod=99
