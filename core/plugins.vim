@@ -251,6 +251,7 @@ let g:ale_fixers = {
   \ 'css': ['prettier'],
   \ 'json': ['prettier'],
   \ 'yaml': ['prettier'],
+  \ 'proto': ['protolint'],
   \ }
 
 " fix on save
