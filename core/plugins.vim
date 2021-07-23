@@ -20,6 +20,9 @@ augroup END
 
 call plug#begin()
 
+" scratch script
+Plug 'vim-scripts/scratch.vim'
+
 " minimalist color scheme
 Plug 'dikiaap/minimalist'
 
