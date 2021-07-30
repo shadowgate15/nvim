@@ -58,6 +58,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " carefully to use its full power
 Plug 'wellle/targets.vim'
 
+" auto-pairs
+Plug 'jiangmiao/auto-pairs'
+
 " vim-airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -215,12 +218,6 @@ nmap <leader>f :Format<cr>
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" disable coc-pairs in vim
-augroup coc_pairs_disabled
-  autocmd!
-  autocmd FileType vim let b:coc_pairs_disabled = ['"']
-augroup END
 
 """""""""""""""""""""""""""command-t settings"""""""""""""""""""""""""""""
 let g:CommandTCancelMap = '<Esc>'
