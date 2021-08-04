@@ -43,9 +43,6 @@ if g:is_win || g:is_mac
   Plug 'tyru/open-browser.vim'
 endif
 
-" Autosave files on certain events
-Plug '907th/vim-auto-save'
-
 " command-t
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
@@ -167,16 +164,6 @@ if g:is_win || g:is_mac
   nmap <leader>ob <Plug>(openbrowser-smart-search)
   xmap <leader>ob <Plug>(openbrowser-smart-search)
 endif
-
-""""""""""""""""""""""""vim-auto-save settings"""""""""""""""""""""""
-" Enable autosave on nvim startup
-let g:auto_save = 1
-
-" A list of events to trigger autosave
-let g:auto_save_events = ['InsertLeave', 'TextChanged']
-
-" Whether to show autosave status on command line
-let g:auto_save_silent = 0
 
 """""""""""""""""""""""""""coc.nvim settings"""""""""""""""""""""""""""""
 " Use tab for trigger completion with characters ahead and navigate.
