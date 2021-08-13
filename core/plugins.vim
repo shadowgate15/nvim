@@ -199,10 +199,6 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-nmap <leader>f :Format<cr>
-
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
@@ -215,7 +211,7 @@ let g:CommandTWildIgnore=&wildignore . ',*/.git,*/build,*/node_modules'
 " Automatically open quickfix window of 6 line tall after asyncrun starts
 let g:asyncrun_open = 6
 
-let g:asyncrun_status = 'stopped'
+let g:asyncrun_status = ''
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
 nnoremap <leader>r :AsyncRun<space>
@@ -231,11 +227,11 @@ let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
   \ 'typescript': ['prettier', 'tslint', 'eslint'],
   \ 'javascript': ['prettier', 'xo'],
+  \ 'python': ['autoflake', 'autoimport', 'autopep8'],
   \ 'html': ['prettier'],
   \ 'css': ['prettier'],
   \ 'json': ['prettier'],
-  \ 'yaml': ['prettier'],
-  \ 'proto': ['protolint'],
+  \ 'yaml': ['prettier']
   \ }
 
 " fix on save
@@ -243,6 +239,8 @@ let g:ale_fix_on_save = 1
 
 " change message to include which linter
 let g:ale_echo_msg_format = '[%linter%]%code: %%s'
+
+nnoremap <silent> <leader>f :ALEFix<CR>
 
 """"""""""""""""""""""""""EasyMotion settings""""""""""""""""""""""""""
 
