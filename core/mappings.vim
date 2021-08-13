@@ -28,7 +28,7 @@ xnoremap > >gv
 " Edit and reload init.vim quickly
 nnoremap <silent> <leader>ev :<C-U>tabnew $MYVIMRC <bar> tcd %:h<cr>
 nnoremap <silent> <leader>sv :<C-U>silent update $MYVIMRC <bar> source $MYVIMRC <bar>
-      \ echomsg "Nvim config successfully reloaded!"<cr>
+      \ echomsg 'Nvim config successfully reloaded!'<CR>
 
 " Decrease indent level in insert mode with shift+tab
 inoremap <S-Tab> <ESC><<i
@@ -38,3 +38,6 @@ nnoremap <silent> gB :<C-U>call buf_utils#GoToBuffer(v:count, 'backward')<CR>
 
 " terminal fast escaping
 tnoremap jj <C-\><C-N>
+
+" mapping for grep command
+nnoremap  <leader>a :grep<space>
