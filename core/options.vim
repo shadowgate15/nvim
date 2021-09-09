@@ -111,7 +111,7 @@ endif
 " https://github.com/neovim/neovim/wiki/FAQ#how-to-change-cursor-color-in-the-terminal
 set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor20
 
-set signcolumn=auto:2
+set signcolumn=auto:3
 
 " Remove certain character from file name pattern matching
 set isfname-==
