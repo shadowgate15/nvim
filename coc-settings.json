@@ -1,4 +1,4 @@
 {
   "diagnostic.displayByAle": true,
-  "angular.enable-experimental-ivy-prompt": true
+  "angular.enable-experimental-ivy-prompt": false
 }
