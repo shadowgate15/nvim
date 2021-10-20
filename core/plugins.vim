@@ -220,6 +220,7 @@ nnoremap <leader>r :AsyncRun<space>
 " linters for different filetypes
 let g:ale_linters = {
   \ 'vim': ['vint'],
+  \ 'proto': ['protolint'],
   \ }
 
 " ale fixers
@@ -231,7 +232,8 @@ let g:ale_fixers = {
   \ 'html': ['prettier'],
   \ 'css': ['prettier'],
   \ 'json': ['prettier'],
-  \ 'yaml': ['prettier']
+  \ 'yaml': ['prettier'],
+  \ 'proto': ['protolint'],
   \ }
 
 " fix on save
