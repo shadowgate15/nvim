@@ -74,6 +74,9 @@ Plug 'easymotion/vim-easymotion'
 " Livedown
 Plug 'shime/vim-livedown'
 
+" easy-align
+Plug 'junegunn/vim-easy-align'
+
 " syntax helpers
 Plug 'digitaltoad/vim-pug'
 Plug 'pangloss/vim-javascript'
