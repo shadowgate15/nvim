@@ -60,7 +60,6 @@ set wildmode=list:longest
 set scrolloff=3
 
 " Use mouse to select and resize windows, etc.
-set ttymouse=xterm2   " Enable tty mouse for tmux compatability
 set mouse=a           " Enable mouse in several mode
 set mousemodel=popup  " Set the behaviour of mouse
 
