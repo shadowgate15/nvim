@@ -222,6 +222,7 @@ nnoremap <leader>r :AsyncRun<space>
 """"""""""""""""""""""""""ALE settings""""""""""""""""""""""""""
 " linters for different filetypes
 let g:ale_linters = {
+  \ 'pug': ['pug-lint'],
   \ 'vim': ['vint'],
   \ 'proto': ['protolint'],
   \ }
@@ -233,6 +234,7 @@ let g:ale_fixers = {
   \ 'javascript': ['prettier', 'xo'],
   \ 'python': ['autoflake', 'autoimport', 'autopep8'],
   \ 'html': ['prettier'],
+  \ 'pug': ['prettier'],
   \ 'css': ['prettier'],
   \ 'json': ['prettier'],
   \ 'yaml': ['prettier'],
