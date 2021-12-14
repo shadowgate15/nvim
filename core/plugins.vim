@@ -203,7 +203,7 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
 """""""""""""""""""""""""""command-t settings"""""""""""""""""""""""""""""
 let g:CommandTCancelMap = '<Esc>'
@@ -225,6 +225,7 @@ let g:ale_linters = {
   \ 'pug': ['pug-lint'],
   \ 'vim': ['vint'],
   \ 'proto': ['protolint'],
+  \ 'markdown': ['remark'],
   \ }
 
 " ale fixers
@@ -247,7 +248,13 @@ let g:ale_fix_on_save = 1
 " change message to include which linter
 let g:ale_echo_msg_format = '[%linter%]%code: %%s'
 
-nnoremap <silent> <leader>f :ALEFix<CR>
+augroup ale_fix_events
+  autocmd!
+  autocmd User ALEFixPre unsilent echom 'Fixing...'
+  autocmd User ALEFixPost unsilent echom 'Done fixing!'
+augroup END
+
+nnoremap <leader>f :ALEFix<CR>
 
 """"""""""""""""""""""""""EasyMotion settings""""""""""""""""""""""""""
 
