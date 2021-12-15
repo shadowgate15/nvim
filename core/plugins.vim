@@ -248,11 +248,8 @@ let g:ale_fix_on_save = 1
 " change message to include which linter
 let g:ale_echo_msg_format = '[%linter%]%code: %%s'
 
-augroup ale_fix_events
-  autocmd!
-  autocmd User ALEFixPre unsilent echom 'Fixing...'
-  autocmd User ALEFixPost unsilent echom 'Done fixing!'
-augroup END
+" fix message variable
+let g:ale_fix_msg = 1
 
 nnoremap <leader>f :ALEFix<CR>
 

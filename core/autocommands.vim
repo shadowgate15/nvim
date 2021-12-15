@@ -65,3 +65,18 @@ augroup auto_insert_gitcommit
   autocmd!
   autocmd FileType gitcommit startinsert
 augroup END
+
+" Send message when fixing starts and finishes
+" but only if we aren't saving
+function! AleFixMsg(msg) abort
+  if getbufvar(bufnr(), 'ale_save_event_fired') == 0
+    unsilent echom a:msg
+  endif
+endfunction
+
+augroup ale_fix_events
+  autocmd!
+  " autocmd User ALEFixPre unsilent echom 'Fixing...'
+  autocmd User ALEFixPre call AleFixMsg('Fixing...')
+  autocmd User ALEFixPost call AleFixMsg('Done fixing!')
+augroup END
