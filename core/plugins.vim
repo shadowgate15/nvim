@@ -1,5 +1,8 @@
 scriptencoding utf-8
 
+" disable ALE lsp
+let g:ale_disable_lsp = 1
+
 "{{ Vim-plug related settings.
 " The root directory to install all plugins.
 let g:plug_home = expand(stdpath('data') . '/plugged')
@@ -9,13 +12,13 @@ if g:is_linux
   let g:plug_url_format = 'https://hub.fastgit.org/%s.git'
 endif
 
-" disable ALE lsp
-let g:ale_disable_lsp = 1
-
-augroup plug_init
-  autocmd!
-  autocmd VimEnter * PlugInstall --sync | quit | source $MYVIMRC
-augroup END
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  augroup plug_init
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup END
+endif
 "}}
 
 call plug#begin()
@@ -49,6 +52,19 @@ Plug 'wincent/command-t', {
     \ }
 
 " coc.nvim
+Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-stylelint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-angular', {'do': 'yarn install --frozen-lockfile'}
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Additional powerful text object for vim, this plugin should be studied
@@ -240,6 +256,7 @@ let g:ale_fixers = {
   \ 'json': ['prettier'],
   \ 'yaml': ['prettier'],
   \ 'proto': ['protolint'],
+  \ 'markdown': ['remark'],
   \ }
 
 " fix on save
