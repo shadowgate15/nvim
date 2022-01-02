@@ -14,7 +14,7 @@ let g:ale_disable_lsp = 1
 
 augroup plug_init
   autocmd!
-  autocmd VimEnter * PlugInstall --sync | quit |source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync | quit | source $MYVIMRC
 augroup END
 "}}
 
