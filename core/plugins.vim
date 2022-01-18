@@ -218,6 +218,13 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+" Find symbol of current document.
+nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> <leader>t  :<C-u>CocList -I symbols<cr>
+" Resume latest coc list.
+nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
+
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
