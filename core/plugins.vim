@@ -74,6 +74,9 @@ Plug 'wellle/targets.vim'
 " auto-pairs
 Plug 'jiangmiao/auto-pairs'
 
+" NERD Commenter
+Plug 'preservim/nerdcommenter'
+
 " vim-airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -301,3 +304,17 @@ map <Leader>k <Plug>(easymotion-k)
 """""""""""""""""""""""""""vim-javascript settings"""""""""""""""""""""""""""""
 
 let g:javascript_plugin_jsdoc = 1
+
+"""""""""""""""""""""""""""NERD Commenter"""""""""""""""""""""""""""""
+
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
