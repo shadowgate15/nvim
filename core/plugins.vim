@@ -31,6 +31,8 @@ Plug 'dikiaap/minimalist'
 
 " Git command inside vim
 Plug 'tpope/vim-fugitive'
+" github extension
+Plug 'tpope/vim-rhubarb'
 
 " NERDTree
 Plug 'preservim/nerdtree'
