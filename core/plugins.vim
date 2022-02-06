@@ -261,6 +261,7 @@ let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
   \ 'typescript': ['prettier', 'tslint', 'eslint'],
   \ 'javascript': ['prettier', 'xo'],
+  \ 'javascriptreact': ['prettier', 'xo'],
   \ 'python': ['autoflake', 'autoimport', 'autopep8'],
   \ 'html': ['prettier'],
   \ 'pug': ['prettier'],
