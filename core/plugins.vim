@@ -65,7 +65,6 @@ Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-stylelint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-angular', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -105,6 +104,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'elzr/vim-json'
 Plug 'stephpy/vim-yaml'
+Plug 'neoclide/vim-jsx-improve'
 
 " tmuxline.vim
 Plug 'edkolev/tmuxline.vim'
