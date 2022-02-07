@@ -194,9 +194,9 @@ endif
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -205,7 +205,9 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <cr> to confirm selection of completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr>
+  \ pumvisible() ? coc#refresh() :
+  \ "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
 augroup coc_highlight_hold
   " Highlight the symbol and its references when holding the cursor.
