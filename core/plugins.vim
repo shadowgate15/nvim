@@ -206,7 +206,7 @@ endfunction
 
 " Use <cr> to confirm selection of completion
 inoremap <silent><expr> <cr>
-  \ pumvisible() ? coc#refresh() :
+  \ pumvisible() ? "\<C-y>" :
   \ "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
 augroup coc_highlight_hold
