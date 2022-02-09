@@ -228,9 +228,22 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " Find symbol of current document.
 nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <leader>t  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent><nowait> <leader>t  :<C-u>CocList -I symbols<cr>
 " Resume latest coc list.
 nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
@@ -238,7 +251,7 @@ command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport
 """""""""""""""""""""""""""command-t settings"""""""""""""""""""""""""""""
 let g:CommandTCancelMap = '<Esc>'
 
-let g:CommandTWildIgnore=&wildignore . ',*/.git,*/build,*/node_modules'
+let g:CommandTWildIgnore=&wildignore . ',*/.git,*/build,*/node_modules,*/dist'
 
 """"""""""""""""""""""""""asyncrun.vim settings""""""""""""""""""""""""""
 " Automatically open quickfix window of 6 line tall after asyncrun starts
